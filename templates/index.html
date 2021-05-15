@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: pink;
+}
+.container {
+    padding: 50px;
+  background-color: lightblue;
+}
+
+input[type=text], textarea {
+  width: 50%;
+  padding: 9px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=text]:focus {
+  background-color: #FFF59D;
+  outline: none;
+}
+ div {
+            padding: 10px 0;
+         }
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+.predictbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  opacity: 0.9;
+}
+.registerbtn:hover {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+<form action="{{ url_for('predict')}}" method="post">
+  <div class="container">
+  <center>  <h1>Employee Attrition Prediction</h1> </center>
+  <hr>
+
+<label> <b>Age: </b></label>
+<input type="text" name="age" placeholder= "Enter the employee age" size="15" required />
+<br>
+<label> <b>Department: </b></label>
+<select name="dept">
+<option value="menu">Select</option>
+<option value="rd">Research and Development</option>
+<option value="sales">Sales</option>
+<option value="hr">Human Resources</option>
+</select>
+<br><br>
+<label> <b>Distance From Home: </b></label>
+<input type="text" name="distance" placeholder= "Enter the distance from home in kms" size="15" required />
+<br><br>
+<label>
+<b>Education:</b>
+</label>
+<select name="education">
+<option value="menu">Select</option>
+<option value="belowclg">Below College</option>
+<option value="clg">College</option>
+<option value="bachelor">Bachelor</option>
+ <option value="master">Master</option>
+ <option value="doctor">Doctor</option>
+</select>
+<br><br>
+<label>
+<b>Education Field:</b>
+</label>
+<select name="ef">
+<option value="menu">Select</option>
+<option value="ls">Life Sciences</option>
+<option value="medical">Medical</option>
+<option value="marketing">Marketing</option>
+ <option value="td">Technical Degree</option>
+ <option value="hrs">Human Resources</option>
+ <option value="other">Others</option>
+</select>
+<br><br>
+<label>
+<b>Environment Satisfaction:</b>
+</label>
+<select name="envsat">
+<option value="menu">Select</option>
+<option value="low">Low</option>
+<option value="medium">Medium</option>
+<option value="high">High</option>
+ <option value="vh">Very High</option>
+</select>
+<br><br>
+<label>
+<b>Job Satisfaction:</b>
+</label>
+<select name="jobsat">
+<option value="menu">Select</option>
+<option value="bad">Bad</option>
+<option value="good">Good</option>
+<option value="better">Better</option>
+ <option value="best">Best</option>
+</select>
+<br><br>
+<label>
+<b>Marital Status:</b>
+</label>
+<select name="marstat">
+<option value="menu">Select</option>
+<option value="single">Single</option>
+<option value="married">Married</option>
+<option value="divorced">Divorced</option>
+</select>
+<br>
+<label> <b>Monthly Income: </b></label>
+<input type="text" name="mi" placeholder= "Enter the employee monthly income" size="15" required />
+<br>
+<label> <b>No. of Companies Worked: </b></label>
+<input type="text" name="ncw" placeholder= "Enter the no. of companies previously worked" size="15" required />
+<br>
+<label>
+<b>Work Life Balance:</b>
+</label>
+<select name="wlb">
+<option value="menu">Select</option>
+<option value="bad">Bad</option>
+<option value="good">Good</option>
+<option value="better">Better</option>
+ <option value="best">Best</option>
+</select>
+<br>
+<label> <b>Years at the Company: </b></label>
+<input type="text" name="ytc" placeholder= "Since how many years the employee is working in present company" size="15" required />
+<br><br>
+    <button id="sub" type="submit" class="predictbtn">Predict</button>
+    <br><br><h3>{{ prediction_text }}</h3>
+</div>
+</form>
+
+</body>
+</html>
